@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 
 .roboticsname{
-    color: white;
+    /* color: white;
     font-size: 50px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
     position: absolute; /* Positioning for top left */
-    top: 0; /* Align to the top */
-    left: 50px; /* Align to the left */
-    margin-top: 0;
+    /* top: 0; Align to the top */
+    /* left: 50px; Align to the left */
+    /* margin-top: 0; */
+    /* font-family: "Orbitron", serif; */ 
+}
+
+.new-iris {
+    color: white;
+    font-size: 500px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-top: 40px; /* Add some space above */
     font-family: "Orbitron", serif;
+    text-align: center; /* Center the text */
 }
 
 .background{
@@ -33,9 +42,6 @@
 }
 
 @keyframes glow {
-    0% {
-        box-shadow: 0 0 20px rgba(255, 255, 0, 0.7), 0 0 30px rgba(255, 255, 0, 0.5);
-    }
     100% {
         box-shadow: 0 0 40px rgba(255, 255, 0, 1), 0 0 60px rgba(255, 255, 0, 0.7);
     }
