@@ -1,4 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@font-face {
+    font-family: 'Telematic';
+    src: url('fonts/Telematic.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MADENZ';
+    src: url('MADENZ.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 .roboticsname{
     /* color: white;
