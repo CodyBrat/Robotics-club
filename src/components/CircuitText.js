@@ -14,7 +14,6 @@ const CircuitText = ({ text, className = '' }) => {
     const createPulse = () => {
       if (!containerRef.current) return;
       
-      const bounds = containerRef.current.getBoundingClientRect();
       const xPos = Math.random() * 100; // percent-based position
       const duration = Math.random() * 2000 + 1000;
       const size = Math.random() * 6 + 3;

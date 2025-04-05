@@ -30,12 +30,15 @@ const SplitText = ({
       }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
+    // Store the current value of the ref
+    const currentRef = containerRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (containerRef.current) {
+      if (currentRef) {
         observer.disconnect();
       }
     };

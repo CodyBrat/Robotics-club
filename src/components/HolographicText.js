@@ -3,12 +3,12 @@ import './HolographicText.css';
 
 const HolographicText = ({ text, className = '' }) => {
   const [isActive, setIsActive] = useState(false);
-  const [scanLines, setScanLines] = useState(Array(10).fill(0).map((_, i) => ({ 
+  const scanLines = Array(10).fill(0).map((_, i) => ({ 
     id: i, 
     opacity: Math.random() * 0.7 + 0.3,
     speed: Math.random() * 2 + 1,
     delay: Math.random() * 3
-  })));
+  }));
   const containerRef = useRef(null);
   
   useEffect(() => {

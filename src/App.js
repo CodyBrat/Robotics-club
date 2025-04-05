@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import TextPressure from './components/TextPressure.js';
 import SplitText from './components/SplitText.js';
 import Spline from '@splinetool/react-spline';
 import GlitchText from './components/GlitchText.js';
