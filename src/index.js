@@ -1,3 +1,7 @@
+// Polyfills and compatibility helpers
+import 'core-js/stable'; // Polyfills for modern JavaScript features
+import 'regenerator-runtime/runtime'; // Needed for async/await
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -23,11 +27,14 @@ const renderApp = () => {
       </React.StrictMode>
     );
     
-    // Add a backup mechanism - if the app doesn't show anything after 8 seconds,
+    // Add a backup mechanism - if the app doesn't show anything after 6 seconds,
     // try rendering the simplified version without Spline
     setTimeout(() => {
-      const appElement = document.querySelector('[data-testid="app-loaded"]');
-      if (!appElement) {
+      // More reliable detection - check if the body has any visible content
+      const hasVisibleContent = document.body.innerText.trim().length > 0 ||
+                              document.body.getElementsByTagName('canvas').length > 0;
+      
+      if (!hasVisibleContent) {
         console.log("Main app may have failed silently - trying simplified version");
         try {
           root.render(
@@ -39,7 +46,7 @@ const renderApp = () => {
           console.error("Even simplified app failed:", fallbackError);
         }
       }
-    }, 8000);
+    }, 6000);
     
   } catch (error) {
     console.error('Failed to render app:', error);

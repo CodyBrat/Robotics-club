@@ -22,16 +22,19 @@ function SimplifiedApp() {
   };
 
   return (
-    <div style={{ 
-      backgroundColor: '#000000', 
-      height: '100vh', 
-      position: 'relative',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      overflow: 'hidden'
-    }}>
+    <div 
+      data-testid="app-loaded"
+      style={{ 
+        backgroundColor: '#000000', 
+        height: '100vh', 
+        position: 'relative',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        overflow: 'hidden'
+      }}
+    >
       {/* Text effect selector */}
       <div style={{ 
         position: 'absolute', 

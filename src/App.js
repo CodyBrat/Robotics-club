@@ -39,13 +39,29 @@ function App() {
 
   // Add a timeout to handle cases where Spline might be causing issues
   useEffect(() => {
-    // If Spline doesn't load within 5 seconds, mark it as errored to show the fallback
+    // If Spline doesn't load within 3 seconds (reduced from 5), mark it as errored to show the fallback
     const timeoutId = setTimeout(() => {
       if (!splineLoaded) {
         console.log("Spline load timeout - falling back to basic UI");
         setSplineError(true);
       }
-    }, 5000);
+    }, 3000);
+    
+    // Check for WebGL support
+    const checkWebGL = () => {
+      try {
+        const canvas = document.createElement('canvas');
+        return !!(window.WebGLRenderingContext && 
+          (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+      } catch (e) {
+        return false;
+      }
+    };
+    
+    if (!checkWebGL()) {
+      console.log("WebGL not supported - falling back to basic UI");
+      setSplineError(true);
+    }
     
     return () => clearTimeout(timeoutId);
   }, [splineLoaded]);
@@ -159,6 +175,9 @@ function App() {
             scene="https://prod.spline.design/uWRbcbqqtpDWPjaM/scene.splinecode" 
             onLoad={handleSplineLoad}
             onError={handleSplineError}
+            style={{ width: '100%', height: '100%' }}
+            renderOnDemand={false}
+            preventAutoLoad={false}
           />
         )}
       </div>
